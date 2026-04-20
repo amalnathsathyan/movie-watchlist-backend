@@ -1,24 +1,17 @@
-import express from "express"
+import express from 'express'
+import movieRoutes from './routes/movieRoutes.js'
 
-const app = express()
+const app = express();
 
-const PORT = '5001'
+const PORT = 5001;
 
-// The request path will be http://localhost:PORT/api_name
-app.get("/hello", (req, res)=> {
-    res.json({messege:"Hello World"})
+app.use("/movies",movieRoutes);
+
+app.get("/hello",(req,res)=> {
+    res.json({message:"Hello Bun"})
 })
 
-app.listen(PORT, ()=>{
-    console.log("App Running on port 5001")
+const server = app.listen(PORT, ()=> {
+    console.log(`listeing on ${PORT}`);
 })
 
-//POST GET PUT DELETE
-
-
-// API can be categorised, by using Routes
-
-// AUTH - signin, signout, 
-//MOVIE - Get all movies, 
-// USER - get profile
-//WATCHLIST -  

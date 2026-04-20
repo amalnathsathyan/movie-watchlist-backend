@@ -1,7 +1,20 @@
-import express from "express";
+import express from 'express'
 
-const app = express()
+const router = express.Router()
 
-app.get("/hello", (req, res)=> {
-    res.json({messege:"Hello Movie"})
+router.get("/hello", (req, res)=> {
+    res.json({message:"get"})
 })
+
+router.post("/hello", (req, res)=> {
+    res.json({message:"post"})
+})
+
+router.put("/hello", (req, res)=> {
+    res.json({message:"put"})
+})
+
+router.delete("/hello", (req, res)=> {
+    res.json({message:"delete"})
+})
+export default router;
